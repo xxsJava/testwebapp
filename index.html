@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<title>xxs-视频播放学习</title>
+		<link rel="icon" href="icon/pig.ico" type ="image/x-icon">
+		<link rel="stylesheet" href="css/index.css">
+
+		<!-- <link rel="stylesheet" href="css/vuefonts.css"> -->
+		<link rel="stylesheet" href="css/vuetify.min.css">
+		
+		<!-- <link rel="stylesheet" href="css/materialdesignicons.min.css"> -->
+		<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> -->
+		<link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+		<!-- <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"> -->
+
+
+	</head>
+	<body>
+		<div id="app">
+
+			<div class="load" ref="load" style="display: block;">
+				<iframe scrolling="no" width="100%" height="100%" src="loads.html" frameborder="0"></iframe>
+			</div>
+			<nav>
+				<div id="logo" ref="logo" dark @click.stop="drawer = !drawer">
+					<template>
+						<v-avatar color="#FFF" size="43">
+							<span class="white--text headline">
+								<v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+							</span>
+						</v-avatar>
+					</template>
+					<!-- <img @click="clikCH" src="img/gd.svg" alt="图片加载失败" srcset=""> -->
+				</div>
+				<div id="sinput" ref="sinput">
+					<p>xxs视频播放学习</p>
+					<input type="text" name="" v-model="sinput" @keyup.enter="submit()" placeholder="请在这输入您要搜索的" />
+				</div>
+				<div id="search">
+					<a href="#" @click="clikS"><img src="img/sousuo.svg" alt="" srcset=""></a>
+				</div>
+			</nav>
+			<div id="ch" ref="ch">
+				<template>
+					<v-navigation-drawer style="z-index: 10;" v-model="drawer" fixed temporary>
+						<v-list-item>
+							<v-list-item-avatar dark @click.stop="drawer = !drawer">
+								<v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+							</v-list-item-avatar>
+
+							<v-list-item-content>
+								<v-list-item-title> My pig pig</v-list-item-title>
+							</v-list-item-content>
+						</v-list-item>
+
+						<v-divider></v-divider>
+
+						<v-list dense>
+							<v-list-item v-for="ch in chs" link>
+								<v-list-item-icon>
+									<v-icon>{{ ch.icon }}</v-icon>
+								</v-list-item-icon>
+
+								<v-list-item-content>
+									<v-list-item-title>{{ ch.title }}</v-list-item-title>
+								</v-list-item-content>
+							</v-list-item>
+						</v-list>
+					</v-navigation-drawer>
+				</template>
+			</div>
+			<div id="lb">
+				<template>
+					<v-carousel height="100%" cycle :show-arrows="false">
+						<v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src"></v-carousel-item>
+					</v-carousel>
+				</template>
+			</div>
+			<div id="main">
+				<ul>
+					<li class="mainFl">电影</li>
+					<li class="mainFl">电视剧</li>
+					<li class="mainFl">动漫</li>
+					<li class="mainFl">大陆</li>
+					<li class="mainFl">国外</li>
+				</ul>
+			</div>
+
+			<div id="video">
+				<!-- <div class="videoMain">
+					<a href="videoMain.html" @click="setSession(v.cover_id);">
+						<img :src="v.new_pic_vt" width="100%" height="90%" alt="" srcset="">
+						<span>{{v.type_name}}</span>
+						<p>{{v.title}}&nbsp;{{v.episode_updated}}</p>
+					</a>
+
+					
+				</div> -->
+
+				<template>
+					<v-card max-width="400" class="mx-auto">
+						<v-container>
+							<!-- <v-responsive class="overflow-y-auto" max-height="700"> -->
+							<v-row dense>
+								<!-- <v-lazy  min-height="200" :options="{threshold: .5}" transition="fade-transition"> -->
+								<v-col v-for="(v,i) in videoData" :key="i" cols="12">
+									<v-card :color="color" dark>
+										<div id="videoDesc" class="d-flex flex-no-wrap justify-space-between">
+											<a href="videoMain.html" @click="setSession(v.cover_id);">
+												<div style="position: relative;"
+													class="d-flex flex-no-wrap justify-space-between">
+													<div class="videoImg">
+														<v-img height="125" :src="v.new_pic_vt"></v-img>
+													</div>
+													<div class="title">
+														<div><span class="titlea">{{v.title}}</span></div>
+														<div><span class="titleb">{{v.episode_updated}}</span>
+														</div>
+														<div><span class="titleb">{{v.type_name}}</span></div>
+													</div>
+												</div>
+											</a>
+									</v-card>
+								</v-col>
+								<!-- </v-lazy> -->
+							</v-row>
+							<!-- </v-responsive> -->
+						</v-container>
+					</v-card>
+				</template>
+			</div>
+		</div>
+
+		<script src="js/v3.2.8/vue.global.prod.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/v2.6.10/vue.js"></script>
+
+		<!-- // <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+		// <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
+
+		<!-- // <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+
+		<script src="js/vue.js"></script>
+		<script src="js/vuetify.js"></script>
+		<script src="js/axios.min.js"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<!-- // <script src="js/mdi.js"></script> -->
+		<div style="width: 100%; position: fixed; bottom: 0; text-align: center;"><span>视频均来自网络</span></div>
+	</body>
+</html>

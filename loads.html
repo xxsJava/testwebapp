@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<Style>
+			section {
+			    width: 100%;
+			    display: inline-block;
+			    text-align: center;
+				height: 100%;
+			    /* min-height: 215px; */
+			    vertical-align: top;
+			    background: #080915;
+			    border-radius: 5px;
+			    box-shadow: 0px 0px 30px 1px #103136 inset;
+			}
+			
+			.loader {
+			    position: relative;
+			    width: 60px;
+			    height: 60px;
+			    border-radius: 50%;
+			    margin: 75px;
+			    display: inline-block;
+			    vertical-align: middle;
+			}
+			/* @media only screen and (max-width: 600px) {
+			section {
+			min-width: 350px;
+			}
+			} */
+			
+			/*LOADER-4*/
+			
+			.loader-4 {
+			    border: 7px double #ff5722;
+			    -webkit-animation: ball-turn 1s linear infinite;
+			    animation: ball-turn 1s linear infinite;
+			}
+			
+			.loader-4:before,
+			.loader-4:after {
+			    content: "";
+			    position: absolute;
+			    width: 12px;
+			    height: 12px;
+			    background: #ff5722;
+			    border-radius: 50%;
+			    bottom: 0;
+			    right: 37px;
+			}
+			
+			.loader-4:after {
+			    left: 37px;
+			    top: 0;
+			}
+			
+			@-webkit-keyframes ball-turn {
+			    0% {
+			        -webkit-transform: rotate(0deg);
+			        transform: rotate(0deg);
+			    }
+			    100% {
+			        -webkit-transform: rotate(360deg);
+			        transform: rotate(360deg);
+			    }
+			}
+			
+			@keyframes ball-turn {
+			    0% {
+			        -webkit-transform: rotate(0deg);
+			        transform: rotate(0deg);
+			    }
+			    100% {
+			        -webkit-transform: rotate(360deg);
+			        transform: rotate(360deg);
+			    }
+			}
+
+		</Style>
+	</head>
+	<body>
+		
+		<section>
+				    <div class="loader loader-4"></div>
+				  </section>
+	</body>
+</html>

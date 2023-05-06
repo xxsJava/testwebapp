@@ -1,0 +1,85 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "楷体";
+}
+.load{
+	/* display: none; */
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(0, 0, 0,0.5);
+}
+
+.load iframe{
+	position: absolute;
+	top: 30%;
+}
+
+nav{
+	width: 100%;
+	height: 40px;
+	background-color: #9966CC;
+	opacity: 0.5;
+	position: fixed;
+	z-index: 1;
+}
+nav div{
+	float: left;
+}
+nav div:first-child{
+	width: 20%;
+	height: 100%;
+	
+}
+nav div:last-child{
+	width: 60%;
+	height: 40px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	overflow: hidden;
+	margin-top: -10px;
+}
+
+nav div:last-child p{
+	height: 40px;
+	width: 100%;
+}
+
+
+
+.videoPlay{
+	width: 100%;
+	height: 40%;
+}
+
+.descs p{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.descs span{
+	font-size: 14px;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	height: 300px;
+	overflow: scroll;
+}
+ul li{
+	list-style: none;
+	float: left;
+	padding: 2% 5%;
+	margin-left: 10px;
+	margin-bottom: 2%;
+	border: 1px solid red;
+}
+
+
+.checked{
+	background-color: #0099CC;
+}
